@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+@theme {
+  --font-sans: var(--font-geist-sans), var(--font-devanagari);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* SwanSAT brand ramp — anchor #0F66CF */
+  --color-brand-50: #eef5ff;
+  --color-brand-100: #d9e9fd;
+  --color-brand-200: #b6d4fa;
+  --color-brand-300: #85b6f3;
+  --color-brand-400: #4b92e7;
+  --color-brand-500: #1f79db;
+  --color-brand-600: #0f66cf;
+  --color-brand-700: #0c55ac;
+  --color-brand-800: #0b478d;
+  --color-brand-900: #0c3b72;
+
+  /* Semantic status colors (not re-branded) */
+  --color-success-50: #ecfdf3;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-warning-50: #fffbeb;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-danger-50: #fef2f2;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+
+  /* Surfaces */
+  --color-surface: #f6f8fb;
+  --color-card: #ffffff;
+  --color-line: #e5eaf1;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-surface text-slate-900 antialiased;
+  font-family: var(--font-geist-sans), var(--font-devanagari), ui-sans-serif,
+    system-ui, sans-serif;
 }

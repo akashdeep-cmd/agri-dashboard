@@ -1,0 +1,114 @@
+[
+  {
+    "farmerId": "SSK-442",
+    "results": [
+      {
+        "schemeId": "pm-kisan",
+        "status": "eligible",
+        "estimatedAnnualBenefitInr": 6000,
+        "missingDocuments": []
+      },
+      {
+        "schemeId": "pmfby",
+        "status": "eligible",
+        "estimatedAnnualBenefitInr": 34000,
+        "missingDocuments": [],
+        "note": "Estimated claim protection for 4.5 acres of Kharif cotton"
+      },
+      {
+        "schemeId": "pocra",
+        "status": "eligible",
+        "estimatedAnnualBenefitInr": 45000,
+        "missingDocuments": [],
+        "note": "Kashele is a selected PoCRA project village — drip irrigation subsidy"
+      },
+      {
+        "schemeId": "bhausaheb-fundkar-phalbaug",
+        "status": "eligible",
+        "estimatedAnnualBenefitInr": 35000,
+        "missingDocuments": [],
+        "note": "First-year plantation subsidy for 1 acre fruit orchard"
+      },
+      {
+        "schemeId": "kcc",
+        "status": "missing_documents",
+        "estimatedAnnualBenefitInr": 0,
+        "missingDocuments": ["Updated 7/12 Extract"],
+        "note": "Land record on file is older than 12 months"
+      },
+      {
+        "schemeId": "pm-kisan-maandhan",
+        "status": "pending",
+        "estimatedAnnualBenefitInr": 0,
+        "missingDocuments": [],
+        "note": "e-KYC verification in progress"
+      }
+    ],
+    "aiNotice": { "extraMatches": 2, "cropTrigger": "Cotton" }
+  },
+  {
+    "farmerId": "SSK-256",
+    "results": [
+      {
+        "schemeId": "pm-kisan",
+        "status": "eligible",
+        "estimatedAnnualBenefitInr": 6000,
+        "missingDocuments": []
+      },
+      {
+        "schemeId": "pmfby",
+        "status": "eligible",
+        "estimatedAnnualBenefitInr": 28000,
+        "missingDocuments": [],
+        "note": "Kharif cotton cover for 3.6 acres"
+      },
+      {
+        "schemeId": "kcc",
+        "status": "eligible",
+        "estimatedAnnualBenefitInr": 0,
+        "missingDocuments": []
+      },
+      {
+        "schemeId": "magel-tyala-shet-tale",
+        "status": "pending",
+        "estimatedAnnualBenefitInr": 0,
+        "missingDocuments": [],
+        "note": "Site inspection scheduled"
+      },
+      {
+        "schemeId": "ramai-awas",
+        "status": "not_eligible",
+        "estimatedAnnualBenefitInr": 0,
+        "missingDocuments": [],
+        "note": "Household does not meet category criteria"
+      }
+    ],
+    "aiNotice": { "extraMatches": 1, "cropTrigger": "Cotton" }
+  },
+  {
+    "farmerId": "SSK-118",
+    "results": [
+      {
+        "schemeId": "pm-kisan",
+        "status": "eligible",
+        "estimatedAnnualBenefitInr": 6000,
+        "missingDocuments": []
+      },
+      {
+        "schemeId": "e-nam",
+        "status": "eligible",
+        "estimatedAnnualBenefitInr": 0,
+        "missingDocuments": [],
+        "note": "Onion lots can be listed at Rahuri mandi"
+      },
+      {
+        "schemeId": "pm-kisan-maandhan",
+        "status": "missing_documents",
+        "estimatedAnnualBenefitInr": 0,
+        "missingDocuments": ["Age Proof"],
+        "note": "Date of birth mismatch with Aadhaar"
+      }
+    ],
+    "aiNotice": { "extraMatches": 1, "cropTrigger": "Onion" }
+  }
+]

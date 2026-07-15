@@ -1,0 +1,73 @@
+{
+  "center": {
+    "name": "Ajit Dada Pawar Shetkari Seva Kendra",
+    "subtitle": "Karjat, Ahmednagar",
+    "operator": { "name": "Rajesh Kumar", "centerId": "SSK-MH-42" },
+    "lastSyncedLabel": "2m ago"
+  },
+  "stats": [
+    {
+      "id": "farmers",
+      "label": "Registered Farmers",
+      "value": "1,482",
+      "icon": "users",
+      "badge": { "text": "+12.5%", "tone": "success" },
+      "footnote": "85% verified in district"
+    },
+    {
+      "id": "enrollments",
+      "label": "Successfully Enrolled for Scheme",
+      "value": "312",
+      "icon": "badge-check",
+      "badge": { "text": "+8.4%", "tone": "success" },
+      "footnote": "18 enrolled this week"
+    },
+    {
+      "id": "applications",
+      "label": "Recent Applications",
+      "value": "156",
+      "icon": "file-check",
+      "footnote": "24 processed today"
+    }
+  ],
+  "quickActions": [
+    {
+      "id": "register",
+      "title": "Register New Farmer",
+      "description": "Capture bio-metrics and land details",
+      "icon": "user-plus"
+    },
+    {
+      "id": "advisory",
+      "title": "Issue Advisory",
+      "description": "Send pest alerts & crop advice",
+      "icon": "message-square"
+    },
+    {
+      "id": "whatsapp",
+      "title": "Send WhatsApp Notice",
+      "description": "Bulk broadcast scheme updates",
+      "icon": "megaphone"
+    }
+  ],
+  "weeklyActivity": {
+    "rangeLabel": "Last 7 Days",
+    "series": [
+      { "key": "inPerson", "label": "In-person Visit" },
+      { "key": "online", "label": "Online Portal" }
+    ],
+    "days": [
+      { "day": "Mon", "inPerson": 42, "online": 18 },
+      { "day": "Tue", "inPerson": 38, "online": 22 },
+      { "day": "Wed", "inPerson": 51, "online": 19 },
+      { "day": "Thu", "inPerson": 45, "online": 26 },
+      { "day": "Fri", "inPerson": 60, "online": 24 },
+      { "day": "Sat", "inPerson": 33, "online": 15 }
+    ]
+  },
+  "policyNotice": {
+    "title": "New Policy Update",
+    "message": "PM-Kisan installment cycle changed for Kharif season.",
+    "linkText": "Read Detail"
+  }
+}
