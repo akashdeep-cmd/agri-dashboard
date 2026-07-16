@@ -10,17 +10,17 @@
   --font-sans: var(--font-plex-sans), var(--font-devanagari);
   --font-mono: var(--font-plex-mono);
 
-  /* Interactive — Carbon blue ramp (blue 60 #0f62fe = interactive-01) */
-  --color-brand-50: #edf5ff; /* blue 10 */
-  --color-brand-100: #d0e2ff; /* blue 20 — blue tag bg */
-  --color-brand-200: #a6c8ff; /* blue 30 */
-  --color-brand-300: #78a9ff; /* blue 40 */
-  --color-brand-400: #4589ff; /* blue 50 */
-  --color-brand-500: #0f62fe; /* blue 60 */
-  --color-brand-600: #0f62fe; /* blue 60 — primary interactive */
-  --color-brand-700: #0043ce; /* blue 70 — hover / link / tag text */
-  --color-brand-800: #002d9c; /* blue 80 — active */
-  --color-brand-900: #001d6c; /* blue 90 */
+  /* Interactive — brand blue ramp derived from #0f66cf (hue 213°) */
+  --color-brand-50: #ecf4fe; /* tint 10 */
+  --color-brand-100: #c5defb; /* tint 20 — blue tag bg */
+  --color-brand-200: #9cc5f7; /* tint 30 */
+  --color-brand-300: #6aa7f0; /* tint 40 */
+  --color-brand-400: #3586e9; /* tint 50 */
+  --color-brand-500: #0f66cf; /* shade 60 */
+  --color-brand-600: #0f66cf; /* shade 60 — primary interactive */
+  --color-brand-700: #0b4fa2; /* shade 70 — hover / link / tag text */
+  --color-brand-800: #083c7d; /* shade 80 — active */
+  --color-brand-900: #052a57; /* shade 90 */
 
   /* Support colors — Carbon green / yellow / red */
   --color-success-50: #defbe6; /* green 10 */
@@ -73,9 +73,9 @@ body {
   letter-spacing: 0.16px;
 }
 
-/* Carbon focus indicator */
+/* Carbon focus indicator — tracks the primary interactive color */
 :focus-visible {
-  outline: 2px solid #0f62fe;
+  outline: 2px solid var(--color-brand-600);
   outline-offset: 1px;
 }
 

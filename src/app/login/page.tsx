@@ -61,7 +61,7 @@ export default function LoginPage() {
             <Image
               src="/brand/swansat-logo.png"
               alt="SwanSAT"
-              width={170}
+              width={172}
               height={23}
               priority
             />

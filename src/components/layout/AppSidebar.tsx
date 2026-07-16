@@ -13,11 +13,8 @@ import {
   Phone,
   RefreshCw,
   Sparkles,
-  User,
   Users,
 } from "lucide-react";
-import { Avatar } from "@/components/ui/Avatar";
-import { getDashboard } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
 
 const NAV_ITEMS = [
@@ -27,7 +24,6 @@ const NAV_ITEMS = [
   { label: "AI Advisory", icon: Sparkles, href: "#" },
   { label: "Schemes", icon: Landmark, href: "/schemes" },
   { label: "Tasks", icon: ClipboardList, href: "#" },
-  { label: "Profile", icon: User, href: "#" },
 ];
 
 const STORAGE_KEY = "ssk-sidebar-collapsed";
@@ -36,7 +32,6 @@ export function AppSidebar() {
   const pathname = usePathname();
   const { t } = useLanguage();
   const [collapsed, setCollapsed] = useState(false);
-  const { center } = getDashboard();
 
   useEffect(() => {
     // localStorage is unavailable during SSR, so the persisted collapse state
@@ -54,8 +49,8 @@ export function AppSidebar() {
 
   return (
     <aside
-      // top-12 / h-[calc(100vh-3rem)] must track the AppTopBar h-12 height.
-      className={`sticky top-12 hidden h-[calc(100vh-3rem)] flex-col border-r border-line bg-card transition-[width] duration-200 lg:flex ${
+      // top-18 / h-[calc(100vh-4.5rem)] must track the AppTopBar h-18 height.
+      className={`sticky top-18 hidden h-[calc(100vh-4.5rem)] flex-col border-r border-line bg-card transition-[width] duration-200 lg:flex ${
         collapsed ? "w-[72px]" : "w-64"
       }`}
     >
@@ -80,18 +75,7 @@ export function AppSidebar() {
         </button>
       </div>
 
-      {!collapsed ? (
-        <div className="px-6 pb-4 pt-2">
-          <p className="text-sm font-semibold leading-tight text-slate-900">
-            {t(center.name)}
-          </p>
-          <p className="mt-0.5 text-sm tracking-body text-slate-600">
-            {t(center.subtitle)}
-          </p>
-        </div>
-      ) : (
-        <div className="pb-4" />
-      )}
+      <div className="pb-4" />
 
       <nav
         className={`flex-1 space-y-px overflow-y-auto ${collapsed ? "px-3" : "px-4"}`}
@@ -150,33 +134,6 @@ export function AppSidebar() {
           <RefreshCw className="h-4 w-4 shrink-0" aria-hidden />
           {!collapsed && t("Refresh")}
         </button>
-
-        <div
-          className={`flex items-center gap-3 pt-2 ${collapsed ? "justify-center" : "px-4"}`}
-          title={
-            collapsed
-              ? `${t(center.operator.name)} · ${center.operator.centerId}`
-              : undefined
-          }
-        >
-          <Avatar
-            initials={center.operator.name
-              .split(" ")
-              .map((part) => part[0])
-              .join("")}
-            size="sm"
-          />
-          {!collapsed && (
-            <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-slate-900">
-                {t(center.operator.name)}
-              </p>
-              <p className="text-xs tracking-label text-slate-600">
-                {t("Center ID: {id}", { id: center.operator.centerId })}
-              </p>
-            </div>
-          )}
-        </div>
       </div>
     </aside>
   );

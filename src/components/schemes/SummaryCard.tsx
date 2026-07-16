@@ -20,12 +20,12 @@ export function SummaryCard({ tone, label, value, footnote, icon: Icon }: Summar
   const classes = TONE_CLASSES[tone];
 
   return (
-    <article className="bg-card p-4">
+    <article className="bg-card p-3">
       <p className="text-sm tracking-body text-slate-600">{label}</p>
       <p className={`mt-2 text-[1.75rem] font-light leading-9 ${classes.value}`}>
         {value}
       </p>
-      <p className="mt-4 flex items-center gap-1.5 text-sm tracking-body text-slate-600">
+      <p className="mt-0.5 flex items-center gap-1.5 text-sm tracking-body text-slate-600">
         <Icon className={`h-4 w-4 ${classes.icon}`} aria-hidden />
         {footnote}
       </p>

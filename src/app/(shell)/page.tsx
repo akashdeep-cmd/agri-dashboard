@@ -1,11 +1,9 @@
 "use client";
 
-import { QrCode } from "lucide-react";
 import { ActivityChart } from "@/components/dashboard/ActivityChart";
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
 import { QuickActionCard } from "@/components/dashboard/QuickActionCard";
 import { StatCard } from "@/components/dashboard/StatCard";
-import { Fab } from "@/components/ui/Fab";
 import { InfoBanner } from "@/components/ui/InfoBanner";
 import { getDashboard } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
@@ -45,8 +43,6 @@ export default function OperatorDashboardPage() {
         linkText={t(dashboard.policyNotice.linkText)}
         dismissible
       />
-
-      <Fab icon={QrCode} label={t("Scan QR code")} />
     </>
   );
 }

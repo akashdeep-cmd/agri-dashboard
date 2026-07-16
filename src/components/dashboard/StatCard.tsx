@@ -27,7 +27,7 @@ export function StatCard({ stat }: { stat: DashboardStat }) {
   const FootnoteIcon = FOOTNOTE_ICONS[stat.id] ?? BadgeCheck;
 
   return (
-    <article className="bg-card p-4">
+    <article className="bg-card p-3">
       <div className="flex items-start justify-between">
         <StatIcon
           icon={getIcon(stat.icon)}
@@ -41,7 +41,7 @@ export function StatCard({ stat }: { stat: DashboardStat }) {
       <p className="mt-1 text-[1.75rem] font-light leading-9 text-slate-900">
         {stat.value}
       </p>
-      <p className="mt-4 flex items-center gap-1.5 text-sm tracking-body text-slate-600">
+      <p className="mt-0.5 flex items-center gap-1.5 text-sm tracking-body text-slate-600">
         <FootnoteIcon className="h-4 w-4" aria-hidden />
         {t(stat.footnote)}
       </p>
