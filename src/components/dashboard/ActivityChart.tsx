@@ -4,9 +4,10 @@ import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import type { DashboardData } from "@/lib/types";
 
+/* Carbon categorical pair: blue 60 + teal 50 */
 const SERIES_COLORS: Record<"inPerson" | "online", string> = {
   inPerson: "bg-brand-600",
-  online: "bg-brand-300",
+  online: "bg-teal-500",
 };
 
 export function ActivityChart({
@@ -22,19 +23,19 @@ export function ActivityChart({
   const gridValues = [niceMax, (niceMax / 4) * 3, niceMax / 2, niceMax / 4];
 
   return (
-    <section className="flex flex-col rounded-2xl border border-line bg-card p-6 shadow-sm">
+    <section className="flex flex-col border border-line bg-card p-6">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-lg font-bold text-slate-900">
+          <h2 className="text-base font-semibold text-slate-900">
             {t("Center Activity")}
           </h2>
-          <p className="text-sm text-slate-600">
+          <p className="mt-0.5 text-sm tracking-body text-slate-600">
             {t("Farmer footfall vs. Online applications")}
           </p>
         </div>
         <button
           type="button"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors duration-150 hover:bg-brand-50"
+          className="inline-flex h-8 shrink-0 items-center gap-2 px-3 text-xs tracking-label text-slate-600 transition-colors duration-150 hover:bg-hover hover:text-slate-900 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-600"
         >
           {t(activity.rangeLabel)}
           <ChevronDown className="h-3.5 w-3.5" aria-hidden />
@@ -67,9 +68,9 @@ export function ActivityChart({
           {activity.days.map((day) => (
             <div
               key={day.day}
-              className="group relative flex h-full items-end gap-0.5"
+              className="group relative flex h-full items-end gap-px"
             >
-              <span className="pointer-events-none absolute -top-1 left-1/2 z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md bg-slate-900 px-2 py-1 text-xs font-medium text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+              <span className="pointer-events-none absolute -top-1 left-1/2 z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap bg-slate-700 px-2 py-1 text-xs tracking-label text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
                 {t("{day}: {inPerson} in-person · {online} online", {
                   day: t(day.day),
                   inPerson: day.inPerson,
@@ -77,11 +78,11 @@ export function ActivityChart({
                 })}
               </span>
               <div
-                className={`w-4 rounded-t ${SERIES_COLORS.inPerson}`}
+                className={`w-4 ${SERIES_COLORS.inPerson}`}
                 style={{ height: `${(day.inPerson / niceMax) * 100}%` }}
               />
               <div
-                className={`w-4 rounded-t ${SERIES_COLORS.online}`}
+                className={`w-4 ${SERIES_COLORS.online}`}
                 style={{ height: `${(day.online / niceMax) * 100}%` }}
               />
             </div>
@@ -93,7 +94,7 @@ export function ActivityChart({
         {activity.days.map((day) => (
           <span
             key={day.day}
-            className="text-xs font-medium uppercase tracking-wide text-slate-600"
+            className="text-xs tracking-label text-slate-600"
           >
             {t(day.day)}
           </span>
@@ -104,10 +105,10 @@ export function ActivityChart({
         {activity.series.map((series) => (
           <span
             key={series.key}
-            className="inline-flex items-center gap-2 text-sm text-slate-700"
+            className="inline-flex items-center gap-2 text-sm tracking-body text-slate-700"
           >
             <span
-              className={`h-2.5 w-2.5 rounded-full ${SERIES_COLORS[series.key]}`}
+              className={`h-2.5 w-2.5 ${SERIES_COLORS[series.key]}`}
               aria-hidden
             />
             {t(series.label)}

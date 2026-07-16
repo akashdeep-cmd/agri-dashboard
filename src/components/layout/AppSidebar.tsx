@@ -59,7 +59,7 @@ export function AppSidebar() {
   return (
     <aside
       className={`sticky top-0 hidden h-screen flex-col border-r border-line bg-card transition-[width] duration-200 lg:flex ${
-        collapsed ? "w-[76px]" : "w-72"
+        collapsed ? "w-[72px]" : "w-72"
       }`}
     >
       <div
@@ -92,7 +92,7 @@ export function AppSidebar() {
           title={collapsed ? t("Expand sidebar") : t("Collapse sidebar")}
           aria-label={collapsed ? t("Expand sidebar") : t("Collapse sidebar")}
           aria-expanded={!collapsed}
-          className="rounded-full p-1.5 text-slate-500 transition-colors duration-150 hover:bg-surface hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+          className="p-1.5 text-slate-600 transition-colors duration-150 hover:bg-hover hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
         >
           {collapsed ? (
             <PanelLeftOpen className="h-5 w-5" aria-hidden />
@@ -104,10 +104,12 @@ export function AppSidebar() {
 
       {!collapsed ? (
         <div className="px-6 pt-4">
-          <p className="text-lg font-bold leading-tight text-slate-900">
+          <p className="text-base font-semibold leading-tight text-slate-900">
             {t(center.name)}
           </p>
-          <p className="text-sm text-slate-600">{t(center.subtitle)}</p>
+          <p className="mt-0.5 text-sm tracking-body text-slate-600">
+            {t(center.subtitle)}
+          </p>
         </div>
       ) : null}
 
@@ -115,17 +117,19 @@ export function AppSidebar() {
         <button
           type="button"
           title={collapsed ? t("Register New Farmer") : undefined}
-          className={`flex w-full items-center justify-center gap-2 rounded-full bg-brand-600 text-sm font-semibold text-white transition-colors duration-150 hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 ${
-            collapsed ? "px-0 py-2.5" : "px-4 py-2.5"
+          className={`flex w-full items-center bg-brand-600 text-sm font-normal tracking-body text-white transition-colors duration-150 hover:bg-brand-700 active:bg-brand-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 ${
+            collapsed
+              ? "h-12 justify-center px-0"
+              : "h-12 justify-between gap-3 px-4"
           }`}
         >
-          <UserPlus className="h-4 w-4 shrink-0" aria-hidden />
           {!collapsed && t("Register New Farmer")}
+          <UserPlus className="h-4 w-4 shrink-0" aria-hidden />
         </button>
       </div>
 
       <nav
-        className={`flex-1 space-y-1 overflow-y-auto ${collapsed ? "px-3" : "px-4"}`}
+        className={`flex-1 space-y-px overflow-y-auto ${collapsed ? "px-3" : "px-4"}`}
         aria-label={t("Main")}
       >
         {NAV_ITEMS.map(({ label, icon: Icon, href }) => {
@@ -136,12 +140,12 @@ export function AppSidebar() {
               href={href}
               title={collapsed ? t(label) : undefined}
               aria-current={active ? "page" : undefined}
-              className={`flex items-center gap-3 rounded-full py-2.5 text-sm font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 ${
-                collapsed ? "justify-center px-0" : "px-4"
+              className={`flex h-10 items-center gap-3 border-l-[3px] text-sm tracking-body transition-colors duration-150 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-600 ${
+                collapsed ? "justify-center pl-0 pr-[3px]" : "px-4"
               } ${
                 active
-                  ? "bg-brand-100 font-semibold text-brand-800"
-                  : "text-slate-700 hover:bg-surface hover:text-slate-900"
+                  ? "border-brand-600 bg-slate-100 font-semibold text-slate-900"
+                  : "border-transparent text-slate-600 hover:bg-hover hover:text-slate-900"
               }`}
             >
               <Icon className="h-5 w-5 shrink-0" aria-hidden />
@@ -151,30 +155,30 @@ export function AppSidebar() {
         })}
       </nav>
 
-      <div className={`space-y-2 border-t border-line py-4 ${collapsed ? "px-3" : "px-4"}`}>
+      <div className={`space-y-1 border-t border-line py-4 ${collapsed ? "px-3" : "px-4"}`}>
         {collapsed ? (
           <button
             type="button"
             title={t("Helpline 1800-123-XXXX")}
-            className="flex w-full items-center justify-center rounded-xl bg-brand-600 py-2.5 text-white transition-colors duration-150 hover:bg-brand-700"
+            className="flex h-12 w-full items-center justify-center bg-brand-600 text-white transition-colors duration-150 hover:bg-brand-700"
           >
             <Phone className="h-4 w-4" aria-hidden />
             <span className="sr-only">{t("Helpline 1800-123-XXXX")}</span>
           </button>
         ) : (
-          <div className="rounded-2xl bg-brand-600 px-5 py-4 text-white">
-            <p className="flex items-center gap-2 text-xs font-medium text-brand-100">
+          <div className="bg-brand-600 px-4 py-3 text-white">
+            <p className="flex items-center gap-2 text-xs tracking-label text-brand-100">
               <Phone className="h-3.5 w-3.5" aria-hidden />
               {t("Helpline")}
             </p>
-            <p className="mt-1 text-lg font-bold tracking-wide">1800-123-XXXX</p>
+            <p className="mt-1 text-lg font-semibold">1800-123-XXXX</p>
           </div>
         )}
 
         <button
           type="button"
           title={collapsed ? t("Refresh") : undefined}
-          className={`flex w-full items-center gap-3 rounded-full py-2 text-sm font-medium text-slate-700 transition-colors duration-150 hover:bg-surface hover:text-slate-900 ${
+          className={`flex h-10 w-full items-center gap-3 text-sm tracking-body text-slate-600 transition-colors duration-150 hover:bg-hover hover:text-slate-900 ${
             collapsed ? "justify-center px-0" : "px-4"
           }`}
         >
@@ -186,7 +190,7 @@ export function AppSidebar() {
           direction="up"
           align="start"
           labelHidden={collapsed}
-          buttonClassName={`flex w-full items-center gap-3 rounded-full py-2 text-sm font-medium text-slate-700 transition-colors duration-150 hover:bg-surface hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 ${
+          buttonClassName={`flex h-10 w-full items-center gap-3 text-sm tracking-body text-slate-600 transition-colors duration-150 hover:bg-hover hover:text-slate-900 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-600 ${
             collapsed ? "justify-center px-0" : "px-4"
           }`}
         />
@@ -211,7 +215,7 @@ export function AppSidebar() {
               <p className="truncate text-sm font-semibold text-slate-900">
                 {t(center.operator.name)}
               </p>
-              <p className="text-xs text-slate-600">
+              <p className="text-xs tracking-label text-slate-600">
                 {t("Center ID: {id}", { id: center.operator.centerId })}
               </p>
             </div>

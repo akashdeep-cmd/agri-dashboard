@@ -8,9 +8,7 @@ import {
   EyeOff,
   Info,
   Languages,
-  Lock,
   LogIn,
-  Mail,
   TriangleAlert,
 } from "lucide-react";
 import { LanguageDropdown } from "@/components/ui/LanguageDropdown";
@@ -53,13 +51,13 @@ export default function LoginPage() {
           icon={Languages}
           direction="down"
           align="end"
-          buttonClassName="inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-150 hover:border-brand-300 hover:text-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+          buttonClassName="inline-flex h-10 items-center gap-2 border border-slate-400 bg-card px-3 text-sm tracking-body text-slate-700 transition-colors duration-150 hover:bg-hover hover:text-slate-900 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-600"
         />
       </div>
 
       <main className="w-full max-w-md">
-        <div className="rounded-2xl border border-line bg-card p-8 shadow-sm">
-          <div className="flex flex-col items-center text-center">
+        <div className="border border-line bg-card p-8">
+          <div className="flex flex-col items-start">
             <Image
               src="/brand/swansat-logo.png"
               alt="SwanSAT"
@@ -67,51 +65,41 @@ export default function LoginPage() {
               height={23}
               priority
             />
-            <h1 className="mt-6 text-xl font-bold text-slate-900">
+            <h1 className="mt-6 text-xl font-normal text-slate-900">
               {t("Sign in to Shetkari Seva Kendra")}
             </h1>
-            <p className="mt-1 text-sm text-slate-600">
+            <p className="mt-1 text-sm tracking-body text-slate-600">
               {t("Operator access for Kendra staff")}
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="mt-8 space-y-4" noValidate>
+          <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
             <div>
               <label
                 htmlFor="email"
-                className="mb-1.5 block text-sm font-medium text-slate-700"
+                className="mb-2 block text-xs tracking-label text-slate-600"
               >
                 {t("Email")}
               </label>
-              <div className="relative">
-                <Mail
-                  className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500"
-                  aria-hidden
-                />
-                <input
-                  id="email"
-                  type="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="operator@swansat.in"
-                  className="w-full rounded-lg border border-line bg-card py-2.5 pl-9 pr-4 text-sm text-slate-900 placeholder:text-slate-600 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
-                />
-              </div>
+              <input
+                id="email"
+                type="email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="operator@swansat.in"
+                className="h-10 w-full border-b border-slate-400 bg-field px-4 text-sm tracking-body text-slate-900 placeholder:text-slate-500 focus:outline-2 focus:-outline-offset-2 focus:outline-brand-600"
+              />
             </div>
 
             <div>
               <label
                 htmlFor="password"
-                className="mb-1.5 block text-sm font-medium text-slate-700"
+                className="mb-2 block text-xs tracking-label text-slate-600"
               >
                 {t("Password")}
               </label>
               <div className="relative">
-                <Lock
-                  className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500"
-                  aria-hidden
-                />
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
@@ -119,13 +107,13 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full rounded-lg border border-line bg-card py-2.5 pl-9 pr-11 text-sm text-slate-900 placeholder:text-slate-600 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                  className="h-10 w-full border-b border-slate-400 bg-field px-4 pr-11 text-sm tracking-body text-slate-900 placeholder:text-slate-500 focus:outline-2 focus:-outline-offset-2 focus:outline-brand-600"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
                   aria-label={showPassword ? t("Hide password") : t("Show password")}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1.5 text-slate-500 transition-colors duration-150 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+                  className="absolute right-0 top-0 flex h-10 w-10 items-center justify-center text-slate-600 transition-colors duration-150 hover:text-slate-900 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-600"
                 >
                   {showPassword ? (
                     <EyeOff className="h-4 w-4" aria-hidden />
@@ -139,42 +127,45 @@ export default function LoginPage() {
             {error ? (
               <p
                 role="alert"
-                className="flex items-center gap-2 rounded-lg bg-danger-50 px-3 py-2.5 text-sm font-medium text-danger-700"
+                className="flex items-center gap-2 border border-danger-100 border-l-[3px] border-l-danger-600 bg-danger-50 py-2.5 pl-3 pr-3 text-sm tracking-body text-slate-900"
               >
-                <TriangleAlert className="h-4 w-4 shrink-0" aria-hidden />
+                <TriangleAlert
+                  className="h-4 w-4 shrink-0 text-danger-600"
+                  aria-hidden
+                />
                 {t("Invalid email or password. Use the demo credentials below.")}
               </p>
             ) : null}
 
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-brand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+              className="flex h-12 w-full items-center justify-between gap-3 bg-brand-600 px-4 text-sm tracking-body text-white transition-colors duration-150 hover:bg-brand-700 active:bg-brand-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
             >
-              <LogIn className="h-4 w-4" aria-hidden />
               {t("Sign In")}
+              <LogIn className="h-4 w-4" aria-hidden />
             </button>
           </form>
         </div>
 
-        <div className="mt-4 rounded-2xl border border-brand-200 bg-brand-50 px-5 py-4">
-          <p className="flex items-center gap-2 text-sm font-semibold text-brand-800">
-            <Info className="h-4 w-4 shrink-0" aria-hidden />
+        <div className="mt-4 border border-brand-200 border-l-[3px] border-l-brand-700 bg-brand-50 px-4 py-4">
+          <p className="flex items-center gap-2 text-sm font-semibold tracking-body text-slate-900">
+            <Info className="h-4 w-4 shrink-0 text-brand-700" aria-hidden />
             {t("Demo credentials")}
           </p>
-          <dl className="mt-2 space-y-1 text-sm text-brand-900">
+          <dl className="mt-2 space-y-1 text-sm tracking-body text-slate-700">
             <div className="flex gap-2">
-              <dt className="w-24 shrink-0 text-brand-700">{t("Email")}</dt>
+              <dt className="w-24 shrink-0 text-slate-600">{t("Email")}</dt>
               <dd className="font-mono">{credentials.email}</dd>
             </div>
             <div className="flex gap-2">
-              <dt className="w-24 shrink-0 text-brand-700">{t("Password")}</dt>
+              <dt className="w-24 shrink-0 text-slate-600">{t("Password")}</dt>
               <dd className="font-mono">{credentials.password}</dd>
             </div>
           </dl>
           <button
             type="button"
             onClick={fillDemoCredentials}
-            className="mt-3 rounded-full border border-brand-300 px-3 py-1.5 text-xs font-semibold text-brand-700 transition-colors duration-150 hover:bg-brand-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+            className="mt-3 inline-flex h-8 items-center border border-brand-600 px-3 text-xs tracking-label text-brand-700 transition-colors duration-150 hover:bg-brand-700 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
           >
             {t("Fill demo credentials")}
           </button>

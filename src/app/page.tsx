@@ -30,7 +30,7 @@ export default function OperatorDashboardPage() {
 
         <div className="grid items-start gap-5 lg:grid-cols-3">
           <section className="space-y-4">
-            <h2 className="text-lg font-bold text-slate-900">
+            <h2 className="text-base font-semibold text-slate-900">
               {t("Quick Actions")}
             </h2>
             {dashboard.quickActions.map((action) => (

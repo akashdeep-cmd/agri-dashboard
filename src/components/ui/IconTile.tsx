@@ -3,15 +3,15 @@ import type { LucideIcon } from "lucide-react";
 export type IconTileAccent = "brand" | "success" | "warning" | "danger";
 
 const ACCENT_CLASSES: Record<IconTileAccent, string> = {
-  brand: "bg-brand-50 text-brand-600",
-  success: "bg-success-50 text-success-600",
-  warning: "bg-warning-50 text-warning-600",
-  danger: "bg-danger-50 text-danger-600",
+  brand: "bg-brand-100 text-brand-700",
+  success: "bg-success-100 text-success-700",
+  warning: "bg-warning-50 text-warning-700",
+  danger: "bg-danger-100 text-danger-700",
 };
 
 const SIZE_CLASSES = {
-  md: "h-11 w-11 rounded-xl [&>svg]:h-5 [&>svg]:w-5",
-  lg: "h-14 w-14 rounded-2xl [&>svg]:h-6 [&>svg]:w-6",
+  md: "h-10 w-10 [&>svg]:h-5 [&>svg]:w-5",
+  lg: "h-12 w-12 [&>svg]:h-6 [&>svg]:w-6",
 } as const;
 
 interface IconTileProps {

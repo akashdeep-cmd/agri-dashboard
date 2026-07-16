@@ -31,20 +31,25 @@ export function SchemeMatcherResults({ items }: { items: SchemeResult[] }) {
   return (
     <section className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-xl font-bold text-slate-900">
+        <h2 className="text-xl font-normal text-slate-900">
           {t("Recommended Schemes")}
         </h2>
-        <div className="flex gap-2" role="group" aria-label={t("Filter schemes")}>
+        {/* Carbon content switcher */}
+        <div
+          className="inline-flex divide-x divide-slate-400 border border-slate-400"
+          role="group"
+          aria-label={t("Filter schemes")}
+        >
           {FILTERS.map(({ key, label }) => (
             <button
               key={key}
               type="button"
               aria-pressed={filter === key}
               onClick={() => setFilter(key)}
-              className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 ${
+              className={`h-8 px-4 text-sm tracking-body transition-colors duration-150 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-600 ${
                 filter === key
-                  ? "bg-brand-600 text-white"
-                  : "border border-line bg-card text-slate-700 hover:border-brand-300 hover:text-brand-700"
+                  ? "bg-slate-800 text-white"
+                  : "bg-card text-slate-700 hover:bg-hover hover:text-slate-900"
               }`}
             >
               {t(label)}

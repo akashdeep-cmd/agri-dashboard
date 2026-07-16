@@ -79,8 +79,8 @@ export function LanguageDropdown({
         <ul
           role="listbox"
           aria-label={t("Language")}
-          className={`absolute z-50 min-w-36 rounded-xl border border-line bg-card p-1 shadow-lg ${
-            direction === "up" ? "bottom-full mb-2" : "top-full mt-2"
+          className={`absolute z-50 min-w-40 border border-line bg-card shadow-lg ${
+            direction === "up" ? "bottom-full mb-1" : "top-full mt-1"
           } ${align === "end" ? "right-0" : "left-0"}`}
         >
           {LANGUAGES.map(({ code, label }) => (
@@ -91,10 +91,10 @@ export function LanguageDropdown({
                   setLang(code);
                   setOpen(false);
                 }}
-                className={`flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm transition-colors duration-150 ${
+                className={`flex h-10 w-full items-center justify-between gap-3 px-4 text-sm tracking-body transition-colors duration-150 ${
                   lang === code
-                    ? "bg-brand-50 font-semibold text-brand-700"
-                    : "text-slate-700 hover:bg-surface hover:text-slate-900"
+                    ? "bg-slate-100 font-semibold text-slate-900"
+                    : "text-slate-700 hover:bg-hover hover:text-slate-900"
                 }`}
               >
                 {label}
