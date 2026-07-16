@@ -60,6 +60,10 @@
   /* Carbon type: 12px runs +0.32px, 14px runs +0.16px */
   --tracking-label: 0.32px;
   --tracking-body: 0.16px;
+
+  /* Type floor: smallest text is 13px across the app */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.375;
 }
 
 body {

@@ -11,7 +11,7 @@ export function FarmerChip({ farmer }: { farmer: Farmer }) {
     <div className="flex items-center gap-3">
       <Avatar initials={farmer.initials} />
       <div>
-        <p className="font-semibold leading-tight text-slate-900">
+        <p className="text-sm font-semibold leading-tight text-slate-900">
           {t(farmer.name)}
         </p>
         <p className="text-sm text-slate-600">

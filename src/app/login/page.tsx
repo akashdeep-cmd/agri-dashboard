@@ -56,7 +56,7 @@ export default function LoginPage() {
       </div>
 
       <main className="w-full max-w-md">
-        <div className="border border-line bg-card p-8">
+        <div className="border border-line bg-card p-4">
           <div className="flex flex-col items-start">
             <Image
               src="/brand/swansat-logo.png"

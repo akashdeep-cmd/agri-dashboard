@@ -23,10 +23,10 @@ export function ActivityChart({
   const gridValues = [niceMax, (niceMax / 4) * 3, niceMax / 2, niceMax / 4];
 
   return (
-    <section className="flex flex-col border border-line bg-card p-6">
+    <section className="flex flex-col border border-line bg-card p-4">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-base font-semibold text-slate-900">
+          <h2 className="text-sm font-semibold text-slate-900">
             {t("Center Activity")}
           </h2>
           <p className="mt-0.5 text-sm tracking-body text-slate-600">
@@ -50,14 +50,14 @@ export function ActivityChart({
             className="absolute inset-x-0 flex items-center gap-2"
             style={{ top: `${(i / 4) * 100}%` }}
           >
-            <span className="w-6 text-right text-[10px] leading-none text-slate-500">
+            <span className="w-6 text-right text-xs leading-none text-slate-500">
               {value}
             </span>
             <div className="h-px flex-1 bg-line" />
           </div>
         ))}
         <div className="absolute inset-x-0 bottom-0 flex items-center gap-2">
-          <span className="w-6 text-right text-[10px] leading-none text-slate-500">
+          <span className="w-6 text-right text-xs leading-none text-slate-500">
             0
           </span>
           <div className="h-px flex-1 bg-slate-300" />

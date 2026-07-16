@@ -15,7 +15,7 @@ export function EmptyState({ title, message }: EmptyStateProps) {
         height={40}
         className="opacity-70"
       />
-      <p className="font-semibold text-slate-900">{title}</p>
+      <p className="text-sm font-semibold text-slate-900">{title}</p>
       <p className="max-w-sm text-sm tracking-body text-slate-600">{message}</p>
     </div>
   );

@@ -1,12 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   ClipboardList,
-  Globe,
   Landmark,
   LayoutDashboard,
   Map,
@@ -16,11 +14,9 @@ import {
   RefreshCw,
   Sparkles,
   User,
-  UserPlus,
   Users,
 } from "lucide-react";
 import { Avatar } from "@/components/ui/Avatar";
-import { LanguageDropdown } from "@/components/ui/LanguageDropdown";
 import { getDashboard } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
 
@@ -58,34 +54,16 @@ export function AppSidebar() {
 
   return (
     <aside
-      className={`sticky top-0 hidden h-screen flex-col border-r border-line bg-card transition-[width] duration-200 lg:flex ${
-        collapsed ? "w-[72px]" : "w-72"
+      // top-12 / h-[calc(100vh-3rem)] must track the AppTopBar h-12 height.
+      className={`sticky top-12 hidden h-[calc(100vh-3rem)] flex-col border-r border-line bg-card transition-[width] duration-200 lg:flex ${
+        collapsed ? "w-[72px]" : "w-64"
       }`}
     >
       <div
-        className={`flex pt-6 ${
-          collapsed
-            ? "flex-col items-center gap-3 px-3"
-            : "items-center justify-between gap-2 px-6"
+        className={`flex pt-4 ${
+          collapsed ? "justify-center px-3" : "justify-end px-3"
         }`}
       >
-        {collapsed ? (
-          <Image
-            src="/brand/swansat-icon.png"
-            alt="SwanSAT"
-            width={32}
-            height={32}
-            priority
-          />
-        ) : (
-          <Image
-            src="/brand/swansat-logo.png"
-            alt="SwanSAT"
-            width={148}
-            height={20}
-            priority
-          />
-        )}
         <button
           type="button"
           onClick={toggleCollapsed}
@@ -103,30 +81,17 @@ export function AppSidebar() {
       </div>
 
       {!collapsed ? (
-        <div className="px-6 pt-4">
-          <p className="text-base font-semibold leading-tight text-slate-900">
+        <div className="px-6 pb-4 pt-2">
+          <p className="text-sm font-semibold leading-tight text-slate-900">
             {t(center.name)}
           </p>
           <p className="mt-0.5 text-sm tracking-body text-slate-600">
             {t(center.subtitle)}
           </p>
         </div>
-      ) : null}
-
-      <div className={`py-4 ${collapsed ? "px-3" : "px-4"}`}>
-        <button
-          type="button"
-          title={collapsed ? t("Register New Farmer") : undefined}
-          className={`flex w-full items-center bg-brand-600 text-sm font-normal tracking-body text-white transition-colors duration-150 hover:bg-brand-700 active:bg-brand-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 ${
-            collapsed
-              ? "h-12 justify-center px-0"
-              : "h-12 justify-between gap-3 px-4"
-          }`}
-        >
-          {!collapsed && t("Register New Farmer")}
-          <UserPlus className="h-4 w-4 shrink-0" aria-hidden />
-        </button>
-      </div>
+      ) : (
+        <div className="pb-4" />
+      )}
 
       <nav
         className={`flex-1 space-y-px overflow-y-auto ${collapsed ? "px-3" : "px-4"}`}
@@ -171,7 +136,7 @@ export function AppSidebar() {
               <Phone className="h-3.5 w-3.5" aria-hidden />
               {t("Helpline")}
             </p>
-            <p className="mt-1 text-lg font-semibold">1800-123-XXXX</p>
+            <p className="mt-1 text-base font-semibold">1800-123-XXXX</p>
           </div>
         )}
 
@@ -185,15 +150,6 @@ export function AppSidebar() {
           <RefreshCw className="h-4 w-4 shrink-0" aria-hidden />
           {!collapsed && t("Refresh")}
         </button>
-        <LanguageDropdown
-          icon={Globe}
-          direction="up"
-          align="start"
-          labelHidden={collapsed}
-          buttonClassName={`flex h-10 w-full items-center gap-3 text-sm tracking-body text-slate-600 transition-colors duration-150 hover:bg-hover hover:text-slate-900 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-600 ${
-            collapsed ? "justify-center px-0" : "px-4"
-          }`}
-        />
 
         <div
           className={`flex items-center gap-3 pt-2 ${collapsed ? "justify-center" : "px-4"}`}

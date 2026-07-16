@@ -27,12 +27,12 @@ export function SchemeCard({ scheme, result }: SchemeResult) {
       : t(scheme.benefit.summary);
 
   return (
-    <article className="flex flex-col gap-4 border border-line bg-card p-5 sm:flex-row">
+    <article className="flex flex-col gap-4 border border-line bg-card p-4 sm:flex-row">
       <IconTile icon={getIcon(scheme.icon)} accent={scheme.accent} size="lg" />
 
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
-          <h3 className="text-base font-semibold text-slate-900">
+          <h3 className="text-sm font-semibold text-slate-900">
             {t(scheme.name)}
           </h3>
           {result.status === "eligible" ? (
